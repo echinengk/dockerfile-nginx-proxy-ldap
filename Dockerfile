@@ -11,15 +11,15 @@ RUN set -x && \
 
 # Nginx Conf
 RUN rm -rf /etc/nginx/conf.d/default.conf
-COPY nginx.conf /etc/nginx/nginx.conf.template
-COPY default-kibana.conf /etc/nginx/conf.d/default-kibana.conf.template
-COPY default-grafana.conf /etc/nginx/conf.d/default-grafana.conf.template
-COPY default-alertmanager.conf /etc/nginx/conf.d/default-alertmanager.conf.template
-COPY default-prometheus.conf /etc/nginx/conf.d/default-prometheus.conf.template
-COPY root-dir/ /etc/nginx/root-dir
+COPY conf/nginx.conf /etc/nginx/nginx.conf.template
+COPY conf/default-kibana.conf /etc/nginx/conf.d/default-kibana.conf.template
+COPY conf/default-grafana.conf /etc/nginx/conf.d/default-grafana.conf.template
+COPY conf/default-alertmanager.conf /etc/nginx/conf.d/default-alertmanager.conf.template
+COPY conf/default-prometheus.conf /etc/nginx/conf.d/default-prometheus.conf.template
+COPY conf/root-dir/ /etc/nginx/root-dir
 
 # Script entrypoint
-COPY docker-entrypoint.sh /docker-entrypoint.sh
+COPY bin/docker-entrypoint.sh /docker-entrypoint.sh
 
 EXPOSE 80
 
